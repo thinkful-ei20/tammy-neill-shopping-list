@@ -31,22 +31,22 @@ function main() {
   });
   $(this).find('input[name="shopping-list-entry"]').val();
 
+  
+  
   // item check toggle
-
-  // $('shopping-list-item').on('click', '.shopping-item', function(event) {
-  //   $('shopping-item').toggleClass('shopping-item__checked')});
-
   $('.shopping-list').on('click', '.shopping-item-toggle', function(event) {
     event.preventDefault();
-
     console.log('Button press');
-
     $(this).parent().siblings('span').toggleClass('shopping-item__checked');
   });
 
+  // item delete toggle
+  $('.shopping-list').on('click', '.shopping-item-delete', function(event) {
+    event.preventDefault();
+    $(this).parent().parent().remove();
+  });
 }
 
+  $(main);
 
-$(main);
-
-console.log('I am working.');
+  console.log('I am working.');
