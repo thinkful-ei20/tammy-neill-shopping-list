@@ -1,21 +1,39 @@
 'use strict';
 
+function createHtml(entry) {
+  return `
+      <li>
+        <span class="shopping-item">${entry}</span>
+        <div class="shopping-item-controls">
+          <button class="shopping-item-toggle">
+            <span class="button-label">check</span>
+          </button>
+          <button class="shopping-item-delete">
+            <span class="button-label">delete</span>
+          </button>
+        </div>
+      </li>`;
+}
+
 function main() {
   console.log('DOM ready...');
-  $('form').on('submit', event => {
+  $('#js-shopping-list-form').submit(function(event) {
     event.preventDefault();
-    const entry = $('#js-shopping-list-form').val();
-    // const fizzResults = fizzbuzzer(number);
-    // [ 1, 2, 'fizz', 4, 'buzz' ]
-    const html = '<p> Hello world. </p>';
-    // resultsToHtml(fizzResults);
-    // [ '<div>1</div>', '<div>fizz</div>' ]
+    const entry = $(this).find( 'input[name="shopping-list-entry"]').val();
+    
+    $('.js-shopping-list-entry').val('');
+
+    const html = createHtml(entry);
+
     $('.shopping-list').append(html);
     $('#js-shopping-list-entry').val('New');
+    console.log(`Entry: ${entry}`);
   });
-
+  $(this).find( 'input[name="shopping-list-entry"]').val();
 }
 
 $(main);
 
-console.log("I am working.");
+console.log('I am working.');
+
+
