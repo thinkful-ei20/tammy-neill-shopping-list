@@ -36,12 +36,12 @@ function main() {
   // $('shopping-list-item').on('click', '.shopping-item', function(event) {
   //   $('shopping-item').toggleClass('shopping-item__checked')});
 
-  $('.shopping-item-toggle').click(function(event) {
+  $('.shopping-list').on('click', '.shopping-item-toggle', function(event) {
     event.preventDefault();
 
     console.log('Button press');
 
-    $('.shopping-item').toggleClass('.shopping-item .shopping-item__checked');
+    $(this).parent().siblings('span').toggleClass('shopping-item__checked');
   });
 
 }
